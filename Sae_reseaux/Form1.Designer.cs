@@ -31,22 +31,18 @@
             lblTitre = new Label();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            button1 = new Button();
-            label4 = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            Calcul = new Button();
+            Resultat = new Label();
+            Saisie = new TextBox();
             SuspendLayout();
             // 
             // lblTitre
             // 
             lblTitre.AutoSize = true;
             lblTitre.Font = new Font("Segoe UI", 20F);
-            lblTitre.Location = new Point(291, 32);
+            lblTitre.Location = new Point(255, 24);
             lblTitre.Name = "lblTitre";
-            lblTitre.Size = new Size(396, 46);
+            lblTitre.Size = new Size(314, 37);
             lblTitre.TabIndex = 0;
             lblTitre.Text = "Calculateur de Checksum";
             lblTitre.Click += label1_Click;
@@ -55,9 +51,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13F);
-            label1.Location = new Point(14, 129);
+            label1.Location = new Point(12, 97);
             label1.Name = "label1";
-            label1.Size = new Size(230, 210);
+            label1.Size = new Size(188, 175);
             label1.TabIndex = 1;
             label1.Text = "Groupe F3\r\n\r\nLescot Oscar \r\nLe Callennec Julie\r\nLagouge Jeanne\r\nBourel Hecquet Scotty\r\nLeroux Lucas\r\n";
             // 
@@ -65,84 +61,56 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13F);
-            label2.Location = new Point(14, 388);
+            label2.Location = new Point(12, 291);
             label2.Name = "label2";
-            label2.Size = new Size(192, 120);
+            label2.Size = new Size(159, 100);
             label2.TabIndex = 2;
             label2.Text = "Année 2024/2025 \r\nIUT Amiens\r\nSAE 2.3\r\n\r\n";
             label2.Click += label2_Click;
             // 
-            // label3
+            // Calcul
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13F);
-            label3.Location = new Point(73, 68);
-            label3.Name = "label3";
-            label3.Size = new Size(283, 60);
-            label3.TabIndex = 3;
-            label3.Text = "Zone de saisie du checksum\r\n\r\n";
-            label3.Click += label3_Click;
+            Calcul.Cursor = Cursors.SizeNESW;
+            Calcul.Font = new Font("Segoe UI", 13F);
+            Calcul.Location = new Point(497, 276);
+            Calcul.Name = "Calcul";
+            Calcul.Size = new Size(113, 34);
+            Calcul.TabIndex = 4;
+            Calcul.Text = "Calculer";
+            Calcul.UseVisualStyleBackColor = true;
+            Calcul.Click += Calcul_Click;
             // 
-            // button1
+            // Resultat
             // 
-            button1.Font = new Font("Segoe UI", 13F);
-            button1.Location = new Point(568, 368);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(129, 45);
-            button1.TabIndex = 4;
-            button1.Text = "Calculer";
-            button1.UseVisualStyleBackColor = true;
+            Resultat.AutoSize = true;
+            Resultat.Location = new Point(529, 359);
+            Resultat.Name = "Resultat";
+            Resultat.Size = new Size(49, 15);
+            Resultat.TabIndex = 5;
+            Resultat.Text = "Resultat";
             // 
-            // label4
+            // Saisie
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 13F);
-            label4.Location = new Point(119, 33);
-            label4.Name = "label4";
-            label4.Size = new Size(189, 30);
-            label4.TabIndex = 5;
-            label4.Text = "Resultat checksum";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ControlDark;
-            panel1.Controls.Add(label3);
-            panel1.Location = new Point(422, 129);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(411, 173);
-            panel1.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ControlDark;
-            panel2.Controls.Add(label4);
-            panel2.Location = new Point(422, 467);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(411, 92);
-            panel2.TabIndex = 7;
+            Saisie.Location = new Point(429, 100);
+            Saisie.Multiline = true;
+            Saisie.Name = "Saisie";
+            Saisie.Size = new Size(249, 138);
+            Saisie.TabIndex = 6;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(button1);
+            ClientSize = new Size(800, 450);
+            Controls.Add(Saisie);
+            Controls.Add(Resultat);
+            Controls.Add(Calcul);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lblTitre);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,10 +120,8 @@
         private Label lblTitre;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Button button1;
-        private Label label4;
-        private Panel panel1;
-        private Panel panel2;
+        private Button Calcul;
+        private Label Resultat;
+        private TextBox Saisie;
     }
 }

@@ -9,7 +9,7 @@ namespace Sae_reseaux
             InitializeComponent();
 
         }
-        string CalculSommeHexa(string[] TableauxValeur)
+        static public string CalculSommeHexa(string[] TableauxValeur)
         {
             string resultat = "0";
             int somme = 0;
@@ -17,9 +17,26 @@ namespace Sae_reseaux
             {
                 somme = Convert.ToInt32(resultat, 16) +
                     Convert.ToInt32(s, 16);
-                resultat = Conversion.Hex(somme);
+                resultat = somme.ToString("X4");
             }
             return resultat;
+        }
+
+        static public string[] StringToTab(string saisie)
+        {
+            int nb = saisie.Length;
+            int taillePaquet = 4;
+            int nombrePaquets = (int)Math.Ceiling((double)nb / taillePaquet);
+            string[] tabSaisie = new string[nombrePaquets];
+            int indexTableau = 0;
+
+            for (int i = 0; i < nb; i += taillePaquet)
+            {
+                int longueurPaquet = Math.Min(taillePaquet, nb - i);
+                tabSaisie[indexTableau] = saisie.Substring(i, longueurPaquet);
+                indexTableau++;
+            }
+            return tabSaisie;
         }
 
 
@@ -40,6 +57,11 @@ namespace Sae_reseaux
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Calcul_Click(object sender, EventArgs e)
+        {
+            string saisie = Saisie.Text;
         }
     }
 }
