@@ -6,6 +6,7 @@ namespace Sae_reseaux
     {
         public Form1()
         {
+
             InitializeComponent();
 
         }
@@ -22,21 +23,52 @@ namespace Sae_reseaux
             return resultat;
         }
 
-        static public string[] StringToTab(string saisie)
+        static public string[] StringToTab(string s)
         {
-            int nb = saisie.Length;
-            int taillePaquet = 4;
-            int nombrePaquets = (int)Math.Ceiling((double)nb / taillePaquet);
-            string[] tabSaisie = new string[nombrePaquets];
-            int indexTableau = 0;
+            // Remplace tous les types d'espaces Unicode par un espace standard
+            // Cela permet d'éviter les bugs
+            s = s.Replace('\u00A0', ' '); 
+            s = s.Replace('\u2007', ' ');
+            s = s.Replace('\u202F', ' ');
+            // On passe la chaine en Majuscule
+            s = s.ToUpper();
+            // Index du string qui va contenir les 4 nombre Hexadécimal
+            int indexElement = 0;
+            // Taille d'une trame Classique
+            int tailleTram = 24;
 
-            for (int i = 0; i < nb; i += taillePaquet)
+            // String qui va contenir les 4 chiffre Hexadécimal
+            string element = "";
+
+            // Notre Tableau de retour contenant les 4 chiffre Hexadécimal
+            string[] tab = new string[tailleTram];
+            //Index du tableau de retour 
+            int indexTab = 0;
+
+            // On parcours toute la chaine Saisie s
+            for (int i = 0; i < s.Length; i += 1)
             {
-                int longueurPaquet = Math.Min(taillePaquet, nb - i);
-                tabSaisie[indexTableau] = saisie.Substring(i, longueurPaquet);
-                indexTableau++;
+
+                if (s[i] == ' ')
+                {
+                    element = "";
+                    indexElement = 0;
+                }
+
+                else
+                {
+                    element += s[i];
+                    indexElement++;
+                }
+                if (element.Length == 4)
+                {
+                    tab[indexTab] = element;
+                    indexTab++;
+                    element = "";
+                    indexElement = 0;
+                }
             }
-            return tabSaisie;
+            return tab;
         }
 
 
@@ -62,6 +94,8 @@ namespace Sae_reseaux
         private void Calcul_Click(object sender, EventArgs e)
         {
             string saisie = Saisie.Text;
+            string[] tabSaisie = StrToTab(saisie);
+            
         }
     }
 }
