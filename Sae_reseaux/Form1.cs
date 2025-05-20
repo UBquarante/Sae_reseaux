@@ -29,7 +29,7 @@ namespace Sae_reseaux
         {
             // Remplace tous les types d'espaces Unicode par un espace standard
             // Cela permet d'éviter les bugs
-            s = s.Replace('\u00A0', ' '); 
+            s = s.Replace('\u00A0', ' ');
             s = s.Replace('\u2007', ' ');
             s = s.Replace('\u202F', ' ');
             // On passe la chaine en Majuscule
@@ -75,14 +75,14 @@ namespace Sae_reseaux
         public string AdditionHexa(string element1, string element2)
         {
 
-            int somme ;
+            int somme;
             string resultat;
             somme = Convert.ToInt32(element1, 16) +
                     Convert.ToInt32(element2, 16);
             resultat = somme.ToString("X4");
             return resultat;
         }
-       
+
 
         public string Depassement(string somme)
         {
@@ -125,6 +125,28 @@ namespace Sae_reseaux
             return resultat;
         }
 
+        public string[] Separation(string[] tram)
+        {
+
+            int nombreTram = 0;
+            int indexTram = 0;
+            // Les 10 premier element sont utilisée lors du calcul
+            // On eneleve les 0000 du checksum
+
+            string[] tramResultat = new string[9];
+            while (nombreTram < 10)
+            {
+                if (nombreTram !=5)
+                {
+                    tramResultat[indexTram] = tram[nombreTram];
+                    indexTram++;
+                }
+                nombreTram++;
+                
+            }
+            return tramResultat;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
         }
@@ -148,6 +170,8 @@ namespace Sae_reseaux
         {
             string saisie = Saisie.Text;
             string[] tabSaisie = StringToTab(saisie);
+            tabSaisie = Separation(tabSaisie);
+         
             string somme = CalculSommeHexa(tabSaisie);
             // On vérifie si la somme est supérieur à 4 chiffre
             somme = Depassement(somme);
