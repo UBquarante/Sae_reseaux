@@ -72,7 +72,7 @@
             // 
             Calcul.Cursor = Cursors.SizeNESW;
             Calcul.Font = new Font("Segoe UI", 13F);
-            Calcul.Location = new Point(497, 276);
+            Calcul.Location = new Point(539, 271);
             Calcul.Name = "Calcul";
             Calcul.Size = new Size(113, 34);
             Calcul.TabIndex = 4;
@@ -82,16 +82,19 @@
             // 
             // Resultat
             // 
-            Resultat.AutoSize = true;
-            Resultat.Location = new Point(529, 359);
+            Resultat.BackColor = SystemColors.ControlDark;
+            Resultat.BorderStyle = BorderStyle.FixedSingle;
+            Resultat.Font = new Font("Segoe UI", 18F);
+            Resultat.Location = new Point(471, 337);
             Resultat.Name = "Resultat";
-            Resultat.Size = new Size(49, 15);
+            Resultat.Size = new Size(249, 86);
             Resultat.TabIndex = 5;
-            Resultat.Text = "Resultat";
+            Resultat.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Saisie
             // 
-            Saisie.Location = new Point(429, 100);
+            Saisie.Font = new Font("Segoe UI", 11F);
+            Saisie.Location = new Point(471, 95);
             Saisie.Multiline = true;
             Saisie.Name = "Saisie";
             Saisie.Size = new Size(249, 138);

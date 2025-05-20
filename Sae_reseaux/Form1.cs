@@ -176,7 +176,7 @@ namespace Sae_reseaux
             // On vérifie si la somme est supérieur à 4 chiffre
             somme = Depassement(somme);
             somme = negatif(somme);
-            MessageBox.Show(somme);
+            Resultat.Text = somme;
         }
     }
 }
