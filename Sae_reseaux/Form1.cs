@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 using Microsoft.VisualBasic;
 
 namespace Sae_reseaux
@@ -70,7 +72,58 @@ namespace Sae_reseaux
             }
             return tab;
         }
+        public string AdditionHexa(string element1, string element2)
+        {
 
+            int somme ;
+            string resultat;
+            somme = Convert.ToInt32(element1, 16) +
+                    Convert.ToInt32(element2, 16);
+            resultat = somme.ToString("X4");
+            return resultat;
+        }
+       
+
+        public string Depassement(string somme)
+        {
+            string nombre2 = "";
+            string resultat;
+            string nombreDepassement;
+
+            if (somme.Length == 5)
+            {
+                nombreDepassement = somme[0].ToString();
+                for (int i = 1; i < somme.Length; i++)
+                {
+                    nombre2 += somme[i];
+                }
+                // On fait la somme des deux nombre
+                resultat = AdditionHexa(nombreDepassement, nombre2);
+                return resultat;
+            }
+            else
+            {
+                return somme;
+            }
+
+        }
+
+        public string negatif(string nombre)
+        {
+            string resultat = "";
+            int nombreNegatif = 0;
+            int nombreINT;
+
+            for (int i = 0; i < nombre.Length; i++)
+            {
+                nombreINT = Convert.ToInt32(nombre[i].ToString(), 16);
+                // Cela recupere l'inverse du nombre
+                nombreNegatif = 15 - nombreINT;
+                // On le converti en Hexadécimal et on l'ajoute dans resultat
+                resultat += nombreNegatif.ToString("X");
+            }
+            return resultat;
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -94,8 +147,12 @@ namespace Sae_reseaux
         private void Calcul_Click(object sender, EventArgs e)
         {
             string saisie = Saisie.Text;
-            string[] tabSaisie = StrToTab(saisie);
-            
+            string[] tabSaisie = StringToTab(saisie);
+            string somme = CalculSommeHexa(tabSaisie);
+            // On vérifie si la somme est supérieur à 4 chiffre
+            somme = Depassement(somme);
+            somme = negatif(somme);
+            MessageBox.Show(somme);
         }
     }
 }
