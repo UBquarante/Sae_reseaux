@@ -147,6 +147,59 @@ namespace Sae_reseaux
             return tramResultat;
         }
 
+        public string AdresseIPSource(string[] strings)
+        {
+            string adresseIP = "IP source : ";
+            // On recupere les 2 element de l'adresse IP source
+            for (int i = 5; i < 7; i++)
+            {
+                // On divise en 2 chaque élément afin de garder uniquement chaque décimal de l'adresse 
+                string nombre1 = strings[i].Substring(0,2);
+                adresseIP += Convert.ToInt16(nombre1, 16).ToString();
+                // On ajoute un point à chaque décimal
+                adresseIP += ".";
+                string nombre2 = strings[i].Substring(2, 2);
+                adresseIP += Convert.ToInt16(nombre2,16).ToString();
+                // on vérifie si on est pas à la fin de l'adresse IP
+                if (i != 6)
+                {
+                    adresseIP += ".";
+                }
+            }
+            return adresseIP;
+        }
+
+        public string AdresseIPDest(string[] strings)
+        {
+            string adresseIP = "IP Destinataire : ";
+            // On recupere les 2 element de l'adresse IP destinataire
+            for (int i = 7; i < 9; i++)
+            {
+                // On divise en 2 chaque élément afin de garder uniquement chaque décimal de l'adresse 
+                string nombre1 = strings[i].Substring(0, 2);
+                adresseIP += Convert.ToInt16(nombre1, 16).ToString();
+                // On ajoute un point à chaque décimal
+                adresseIP += ".";
+                string nombre2 = strings[i].Substring(2, 2);
+                adresseIP += Convert.ToInt16(nombre2, 16).ToString();
+                // on vérifie si on est pas à la fin de l'adresse IP
+                if (i != 8)
+                {
+                    adresseIP += ".";
+                }
+            }
+            return adresseIP;
+        }
+
+        public string TimeToLive(string[] strings)
+        {
+            string timeToLive = "Time to live : ";
+            // On recupere le Time to live
+            string nombre1 = strings[4].Substring(0, 2);
+            timeToLive += Convert.ToInt16(nombre1, 16).ToString();
+            return timeToLive;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
         }
@@ -168,15 +221,22 @@ namespace Sae_reseaux
 
         private void Calcul_Click(object sender, EventArgs e)
         {
-            string saisie = Saisie.Text;
-            string[] tabSaisie = StringToTab(saisie);
-            tabSaisie = Separation(tabSaisie);
-         
-            string somme = CalculSommeHexa(tabSaisie);
-            // On vérifie si la somme est supérieur à 4 chiffre
-            somme = Depassement(somme);
-            somme = negatif(somme);
-            Resultat.Text = somme;
+            if (Saisie.TextLength < 40) MessageBox.Show("Veuillez entrer au moins une en-tête IP complète");
+            else
+            {
+                string saisie = Saisie.Text;
+                string[] tabSaisie = StringToTab(saisie);
+                tabSaisie = Separation(tabSaisie);
+
+                string somme = CalculSommeHexa(tabSaisie);
+                // On vérifie si la somme est supérieur à 4 chiffre
+                somme = Depassement(somme);
+                somme = negatif(somme);
+                Resultat.Text = somme;
+                IPsource.Text = AdresseIPSource(tabSaisie);
+                IPdest.Text = AdresseIPDest(tabSaisie);
+                TTL.Text = TimeToLive(tabSaisie);
+            }
         }
     }
 }

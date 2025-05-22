@@ -34,6 +34,9 @@
             Calcul = new Button();
             Resultat = new Label();
             Saisie = new TextBox();
+            IPsource = new Label();
+            IPdest = new Label();
+            TTL = new Label();
             SuspendLayout();
             // 
             // lblTitre
@@ -72,7 +75,7 @@
             // 
             Calcul.Cursor = Cursors.SizeNESW;
             Calcul.Font = new Font("Segoe UI", 13F);
-            Calcul.Location = new Point(539, 271);
+            Calcul.Location = new Point(539, 246);
             Calcul.Name = "Calcul";
             Calcul.Size = new Size(113, 34);
             Calcul.TabIndex = 4;
@@ -85,7 +88,7 @@
             Resultat.BackColor = SystemColors.ControlDark;
             Resultat.BorderStyle = BorderStyle.FixedSingle;
             Resultat.Font = new Font("Segoe UI", 18F);
-            Resultat.Location = new Point(471, 337);
+            Resultat.Location = new Point(471, 293);
             Resultat.Name = "Resultat";
             Resultat.Size = new Size(249, 86);
             Resultat.TabIndex = 5;
@@ -94,17 +97,44 @@
             // Saisie
             // 
             Saisie.Font = new Font("Segoe UI", 11F);
-            Saisie.Location = new Point(471, 95);
+            Saisie.Location = new Point(471, 89);
             Saisie.Multiline = true;
             Saisie.Name = "Saisie";
             Saisie.Size = new Size(249, 138);
             Saisie.TabIndex = 6;
+            // 
+            // IPsource
+            // 
+            IPsource.AutoSize = true;
+            IPsource.Location = new Point(471, 379);
+            IPsource.Name = "IPsource";
+            IPsource.Size = new Size(0, 15);
+            IPsource.TabIndex = 7;
+            // 
+            // IPdest
+            // 
+            IPdest.AutoSize = true;
+            IPdest.Location = new Point(471, 394);
+            IPdest.Name = "IPdest";
+            IPdest.Size = new Size(0, 15);
+            IPdest.TabIndex = 8;
+            // 
+            // TTL
+            // 
+            TTL.AutoSize = true;
+            TTL.Location = new Point(471, 409);
+            TTL.Name = "TTL";
+            TTL.Size = new Size(0, 15);
+            TTL.TabIndex = 9;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TTL);
+            Controls.Add(IPdest);
+            Controls.Add(IPsource);
             Controls.Add(Saisie);
             Controls.Add(Resultat);
             Controls.Add(Calcul);
@@ -126,5 +156,8 @@
         private Button Calcul;
         private Label Resultat;
         private TextBox Saisie;
+        private Label IPsource;
+        private Label IPdest;
+        private Label TTL;
     }
 }
