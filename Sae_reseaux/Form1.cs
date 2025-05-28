@@ -149,7 +149,7 @@ namespace Sae_reseaux
 
         public string AdresseIPSource(string[] strings)
         {
-            string adresseIP = "IP source : ";
+            string adresseIP = "";
             // On recupere les 2 element de l'adresse IP source
             for (int i = 5; i < 7; i++)
             {
@@ -171,7 +171,7 @@ namespace Sae_reseaux
 
         public string AdresseIPDest(string[] strings)
         {
-            string adresseIP = "IP Destinataire : ";
+            string adresseIP = "";
             // On recupere les 2 element de l'adresse IP destinataire
             for (int i = 7; i < 9; i++)
             {
@@ -193,7 +193,7 @@ namespace Sae_reseaux
 
         public string TimeToLive(string[] strings)
         {
-            string timeToLive = "Time to live : ";
+            string timeToLive = "";
             // On recupere le Time to live
             string nombre1 = strings[4].Substring(0, 2);
             timeToLive += Convert.ToInt16(nombre1, 16).ToString();
@@ -239,6 +239,7 @@ namespace Sae_reseaux
             }
         }
 
+
         private void label3_Click_1(object sender, EventArgs e)
         {
 
@@ -246,8 +247,28 @@ namespace Sae_reseaux
 
         private void Saisie_TextChanged(object sender, EventArgs e)
         {
-            Calcul.Enabled = true;
+            Calcul.Enabled = Saisie.TextLength > 0;
             Resultat.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
