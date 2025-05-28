@@ -136,13 +136,13 @@ namespace Sae_reseaux
             string[] tramResultat = new string[9];
             while (nombreTram < 10)
             {
-                if (nombreTram !=5)
+                if (nombreTram != 5)
                 {
                     tramResultat[indexTram] = tram[nombreTram];
                     indexTram++;
                 }
                 nombreTram++;
-                
+
             }
             return tramResultat;
         }
@@ -154,12 +154,12 @@ namespace Sae_reseaux
             for (int i = 5; i < 7; i++)
             {
                 // On divise en 2 chaque élément afin de garder uniquement chaque décimal de l'adresse 
-                string nombre1 = strings[i].Substring(0,2);
+                string nombre1 = strings[i].Substring(0, 2);
                 adresseIP += Convert.ToInt16(nombre1, 16).ToString();
                 // On ajoute un point à chaque décimal
                 adresseIP += ".";
                 string nombre2 = strings[i].Substring(2, 2);
-                adresseIP += Convert.ToInt16(nombre2,16).ToString();
+                adresseIP += Convert.ToInt16(nombre2, 16).ToString();
                 // on vérifie si on est pas à la fin de l'adresse IP
                 if (i != 6)
                 {
@@ -237,6 +237,17 @@ namespace Sae_reseaux
                 IPdest.Text = AdresseIPDest(tabSaisie);
                 TTL.Text = TimeToLive(tabSaisie);
             }
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Saisie_TextChanged(object sender, EventArgs e)
+        {
+            Calcul.Enabled = true;
+            Resultat.Show();
         }
     }
 }
