@@ -270,5 +270,10 @@ namespace Sae_reseaux
         {
 
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
