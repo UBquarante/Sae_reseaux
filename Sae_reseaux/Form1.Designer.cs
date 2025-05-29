@@ -68,7 +68,7 @@
             label1.BackColor = Color.MidnightBlue;
             label1.Font = new Font("Segoe UI", 11F);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(25, 110);
+            label1.Location = new Point(32, 110);
             label1.Name = "label1";
             label1.Size = new Size(198, 175);
             label1.TabIndex = 1;
