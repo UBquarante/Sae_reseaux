@@ -200,25 +200,6 @@ namespace Sae_reseaux
             return timeToLive;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Calcul_Click(object sender, EventArgs e)
         {
             if (Saisie.TextLength < 40) MessageBox.Show("Veuillez entrer au moins une en-tête IP complète");
@@ -239,41 +220,14 @@ namespace Sae_reseaux
             }
         }
 
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void Saisie_TextChanged(object sender, EventArgs e)
         {
             Calcul.Enabled = Saisie.TextLength > 0;
             Resultat.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
