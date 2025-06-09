@@ -4,10 +4,10 @@ using Microsoft.VisualBasic;
 
 namespace Sae_reseaux
 {
-    public partial class Form1 : Form
+    public partial class CalculateurChecksum : Form
     {
-        public Form1()
-        {
+        public CalculateurChecksum()
+        { 
 
             InitializeComponent();
 
@@ -202,10 +202,10 @@ namespace Sae_reseaux
 
         private void Calcul_Click(object sender, EventArgs e)
         {
-            if (Saisie.TextLength < 40) MessageBox.Show("Veuillez entrer au moins une en-tête IP complète");
+            if (txtSaisie.TextLength < 40) MessageBox.Show("Veuillez entrer au moins une en-tête IP complète");
             else
             {
-                string saisie = Saisie.Text;
+                string saisie = txtSaisie.Text;
                 string[] tabSaisie = StringToTab(saisie);
                 tabSaisie = Separation(tabSaisie);
 
@@ -213,7 +213,7 @@ namespace Sae_reseaux
                 // On vérifie si la somme est supérieur à 4 chiffre
                 somme = Depassement(somme);
                 somme = negatif(somme);
-                Resultat.Text = somme;
+                lblResultat.Text = somme;
                 IPsource.Text = AdresseIPSource(tabSaisie);
                 IPdest.Text = AdresseIPDest(tabSaisie);
                 TTL.Text = TimeToLive(tabSaisie);
@@ -222,8 +222,8 @@ namespace Sae_reseaux
 
         private void Saisie_TextChanged(object sender, EventArgs e)
         {
-            Calcul.Enabled = Saisie.TextLength > 0;
-            Resultat.Show();
+            btnCalcul.Enabled = txtSaisie.TextLength > 0;
+            lblResultat.Show();
         }
 
 
