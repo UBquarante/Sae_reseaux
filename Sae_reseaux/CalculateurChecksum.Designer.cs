@@ -72,6 +72,7 @@
             lblEquipe.Size = new Size(198, 175);
             lblEquipe.TabIndex = 1;
             lblEquipe.Text = "Groupe F3\r\n\r\nLescot Oscar \r\nLe Callennec Julie\r\nLagouge Jeanne\r\nBourel Hecquet Scotty\r\nLeroux Lucas\r\n";
+            lblEquipe.Click += lblEquipe_Click;
             // 
             // lblAnnee
             // 
@@ -88,10 +89,9 @@
             // 
             // btnCalcul
             // 
-            btnCalcul.Cursor = Cursors.SizeNESW;
             btnCalcul.Enabled = false;
             btnCalcul.Font = new Font("Segoe UI", 13F);
-            btnCalcul.Location = new Point(537, 331);
+            btnCalcul.Location = new Point(530, 335);
             btnCalcul.Margin = new Padding(3, 4, 3, 4);
             btnCalcul.Name = "btnCalcul";
             btnCalcul.Size = new Size(129, 45);

@@ -7,7 +7,7 @@ namespace Sae_reseaux
     public partial class CalculateurChecksum : Form
     {
         public CalculateurChecksum()
-        { 
+        {
 
             InitializeComponent();
 
@@ -226,8 +226,9 @@ namespace Sae_reseaux
             lblResultat.Show();
         }
 
+        private void lblEquipe_Click(object sender, EventArgs e)
+        {
 
-
-       
+        }
     }
 }
